@@ -1,0 +1,25 @@
+{
+  "name": "express_travis_ci",
+  "version": "1.0.0",
+  "description": "Test to travis CI, using Node.js and Express.js",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HugoSilvaSantos/express_travis_ci.git"
+  },
+  "keywords": [
+    "HTTPS",
+    "Express",
+    "Node"
+  ],
+  "author": "Hugo Santos",
+  "license": "ISC",
+  "homepage": "https://github.com/HugoSilvaSantos/express_travis_ci",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
