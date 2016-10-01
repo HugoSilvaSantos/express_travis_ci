@@ -9,9 +9,10 @@ var server = app.listen(app.get('port'), function() {
 
 // routes
 app.get('/', function(req, res) {
-    res.send('TEST!!');
+    res.send({'Message':'Entry Point'});
 });
 app.get('/home', function(req, res) {
     res.send({'Message':'OK' });
 });
+
 module.exports = app;

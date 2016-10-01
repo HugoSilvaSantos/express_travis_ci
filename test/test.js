@@ -1,43 +1,32 @@
 /**
- * To run: mocha
+ * Unit Test Routine
  * 
  */
-var supertest = require("supertest");
+var request = require('supertest');
 var should = require("should");
+var app = require('../app');
+var server = request.agent(app);
 
-var server = supertest.agent("http://localhost:3000");
-// UNIT test begin
-describe("SAMPLE unit test",function(){
-  // #1 should return home page
-  it("should return home page",function(done){
+describe('REST API Unit Test', function() {
+  it('Test to entry point /', function(done) {
     server
-    .get("/")
-    .expect("Content-type",/json/)
-    .expect(200) // HTTP response
+    .get('/')
+    .expect(200)
     .end(function(err,res){
-      // HTTP status should be 200
       res.status.should.equal(200);
-      // Error key should be false.
-      // res.body.error.should.equal(false);
       done();
     });
   });
-
-  });
-  it("should return REST API Docs",function(done){
+  it('Test to entry point /home', function(done) {
     server
-    .get("/home")
-    .expect("Content-type",/json/)
-    .expect(200) // HTTP response
+    .get('/home')
+    .expect(200)
     .end(function(err,res){
-      // HTTP status should be 200
       res.status.should.equal(200);
-      // Error key should be false.
-      // res.body.error.should.equal(false);
       done();
     });
   });
-    it("should return 404",function(done){
+  it("Test non-implemented entry points",function(done){
     server
     .get("/random")
     .expect(404)
@@ -45,4 +34,5 @@ describe("SAMPLE unit test",function(){
       res.status.should.equal(404);
       done();
     });
+  });
 });
