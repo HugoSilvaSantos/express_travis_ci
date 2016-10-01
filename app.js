@@ -14,3 +14,4 @@ app.get('/', function(req, res) {
 app.get('/home', function(req, res) {
     res.send({'Message':'OK' });
 });
+module.exports = app;
